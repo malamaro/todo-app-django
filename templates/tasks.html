@@ -1,0 +1,32 @@
+{% extends 'layouts/master.html' %}
+{% block content %}
+
+
+<div class="row">
+
+    <div class="col-md-4">
+
+    </div>
+    <div class="col-md-8">
+        <div class="mb-3 d-flex justify-content-end">
+            <a href="#" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#create-task-modal"><i class="bi bi-plus"></i> Create task</a>
+        </div>
+        <ul class="list-group">
+            {% for task in tasks %}
+                <li class="list-group-item d-flex align-items-evenly">
+                    <input class="form-check-input me-3" type="checkbox" value="" id="thirdCheckbox">
+                    <div class="d-inline me-auto">
+                        <h6 class=" me-auto" for="thirdCheckbox"> {{ task.title }}</h6>
+                       <p>{{ task.description }}</p>
+                    </div>
+                    <a href="#" class="me-2 btn-sm">Edit</a>
+                    <a href="#" class="btn-sm">Delete</a>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+</div>
+
+{% include 'modals/create-task.html' %}
+
+{% endblock %}
